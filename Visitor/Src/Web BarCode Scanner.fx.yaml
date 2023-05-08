@@ -1,0 +1,31 @@
+"'Web BarCode Scanner' As screen":
+    LoadingSpinnerColor: =RGBA(135, 100, 184, 1)
+
+    Image1_1 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =768
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='pexels-codioful-(formerly-gradienta)-7130469'
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =1366
+        ZIndex: =1
+
+    Barcode1 As barcode:
+        BarcodeType: =BarcodeType.Auto
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Height: =622
+        ScanRate: =100
+        Width: =1244
+        X: =69
+        Y: =69
+        ZIndex: =2
+

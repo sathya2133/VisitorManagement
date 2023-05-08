@@ -1,0 +1,43 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =/* Logged in user */
+        Set(
+            varUserEmail,
+           User()
+        );
+        
+        /* Get the user role*/
+        Set(
+            varUserGroup,
+            Getuserdetails.Run(User().Email).group
+        );
+        If(
+            varUserGroup = "Null",
+            Navigate(Screen1),
+            If(
+                varUserGroup = "Security" || varUserGroup = "Host",
+                Navigate(Home)
+            )
+        );
+        //SharePoint Groups
+        ClearCollect(
+            collGroupDetails,
+            {
+                GroupName: "Host",
+                GroupId: 13
+            },
+            {
+                GroupName: "Security",
+                GroupId: 10
+            }
+        )
+    StartScreen: =
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

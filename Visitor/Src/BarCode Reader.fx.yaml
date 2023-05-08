@@ -1,0 +1,69 @@
+"'BarCode Reader' As screen":
+    LoadingSpinnerColor: =RGBA(135, 100, 184, 1)
+
+    Image1 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =768
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='pexels-codioful-(formerly-gradienta)-7130469'
+        ImagePosition: =ImagePosition.Fill
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =1366
+        ZIndex: =1
+
+    "BarcodeReader1 As 'Barcode Reader'":
+        BarcodeType: ='Microsoft.BarcodeReader.BarcodeType'.QRCode
+        BorderFillColor: =RGBA(135, 100, 184, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledContentColor: =RGBA(166, 166, 166, 1)
+        DisabledFillColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(135, 100, 184, 1)
+        Font: =Font.Georgia
+        FontSize: =25
+        Height: =552
+        HoverBorderColor: =RGBA(183, 162, 212, 1)
+        HoverContentColor: =RGBA(255, 255, 255, 1)
+        HoverFillColor: =RGBA(135, 100, 184, 1)
+        OnScan: |-
+            =EditForm(Form1);
+            Set(varSelectedRecord,LookUp(Employee,ID=Value(First(Self.Barcodes).Value)));
+            Navigate(FormScreen);
+        PressedBorderColor: =RGBA(135, 100, 184, 1)
+        PressedContentColor: =RGBA(135, 100, 184, 1)
+        PressedFillColor: =RGBA(255, 255, 255, 1)
+        ScanningMode: ='Microsoft.BarcodeReader.ScanningMode'.AutomaticallyScan
+        ScanningQuality: ='Microsoft.BarcodeReader.ScanningQuality'.VeryHigh
+        Text: ="Click here to open the scanner"
+        TextColor: =RGBA(255, 255, 255, 1)
+        Width: =1142
+        X: =112
+        Y: =108
+        ZIndex: =2
+
+    Icon4 As icon.BackArrow:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(135, 100, 184, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Home)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =50
+        X: =19
+        ZIndex: =3
+

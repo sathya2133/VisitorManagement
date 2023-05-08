@@ -1,0 +1,143 @@
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/barcode" name="barcode" jsClass="AppMagic.Controls.Barcode" version="2.2.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[BARCODE
+      Control description here.]]></description>
+  <requires>
+    <require type="css" src="/ctrllib/camera/css/camera.css" />
+    <require type="css" src="css/barcode.css" />
+    <require type="other" src="/ctrllib/camera/images/camera_no_stream.svg" />
+    <require type="javascript" src="js/barcode.js" />
+    <require type="javascript" src="/openSource/modified/quagga/quagga.min.js" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" screenActiveAware="true" requiresCameraAccess="true" replicationLimit="0" isVersionFlexible="true" />
+  <!-- The parents that are supported. All other controls are prohibited as parents for this control. -->
+  <appMagic:supportedParents>
+    <appMagic:supportedControl name="screen" />
+    <appMagic:supportedControl name="component" />
+  </appMagic:supportedParents>
+  <appMagic:accessibilityChecks controlIsInteractive="true">
+    <appMagic:accessibilityCheck type="HelpfulControlSettingNeeded" property="ShowLiveBarcodeDetection" />
+  </appMagic:accessibilityChecks>
+  <content><![CDATA[
+    <div class="appmagic-camera replace-with-placeholder-in-preview" data-placeholder-icon="icon-barcode" data-bind="attr: {
+      title: properties.Tooltip() || null,
+      'aria-label': properties.AccessibleLabel() || AppMagic.Strings.BarcodeDefaultLabel
+    }">
+      <div class="appmagic-barcode-status" data-bind="text: statusMessage"></div>
+      <div class="appmagic-barcode-notification" aria-live="polite" data-bind="text: notification"></div>
+      <div class="appmagic-camera-stream" aria-hidden="true" data-bind="visible: ko.isObservable(properties.DisplayMode) && supportsStreaming && properties.DisplayMode() === AppMagic.Constants.DisplayMode.Edit"></div>
+      <div class="appmagic-camera-video-disabled" data-bind= "visible: ko.isObservable(properties.DisplayMode) && properties.DisplayMode() !== AppMagic.Constants.DisplayMode.Edit" ></div>
+      <div class="appmagic-barcode-not-start" data-bind="visible: !canStartBarcode && ko.isObservable(properties.DisplayMode) && properties.DisplayMode() === AppMagic.Constants.DisplayMode.Edit && state !== 'error' && systemWebViewVersionSupported">
+        <div data-bind="text: AppMagic.Strings.InAuthoringModeMessage"></div>
+      </div>
+      <div class="appmagic-no-camera" data-bind="visible: state === 'error'">
+        <div data-bind="text: cameraStoppedMessage"></div>
+      </div>
+      <div class="appmagic-no-stream" data-bind="visible: !supportsStreaming">
+          <img class="appmagic-camera-icon" data-bind="modifySrcUrl: 'ctrllib/camera/images/camera_no_stream.svg'" alt="" />
+      </div>
+      <div class="appmagic-barcode-not-start" data-bind="visible: !systemWebViewVersionSupported">
+        <div data-bind="text: versionUnsupportedWarningMessage"></div>
+      </div>
+    </div>
+    ]]></content>
+  <properties>
+    <property name="ScanRate" localizedName="##barcode_ScanRate##" datatype="number" defaultValue="20" minimum="1" maximum="100">
+      <title>ScanRate</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##barcode_ScanRate_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##barcode_ScanRate_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="BarcodeType" localizedName="##barcode_Type##" datatype="BarcodeType" isPrimaryInputProperty="true" defaultValue="%BarcodeType.RESERVED%.Upc" isExpr="true">
+      <title>Type</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##barcode_Type_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##barcode_Type_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="ShowLiveBarcodeDetection" localizedName="##barcode_ShowLiveBarcodeDetection##" datatype="Boolean" defaultValue="true">
+      <title>ShowLiveBarcodeDetection</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##barcode_ShowLiveBarcodeDetection_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##barcode_ShowLiveBarcodeDetection_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Text" localizedName="##barcode_Text##" datatype="String" direction="out" isPrimaryOutputProperty="true">
+      <title>Barcode result </title>
+      <appMagic:category>Data</appMagic:category>
+    </property>
+    <property name="Camera" localizedName="##camera_Camera##" datatype="Number" defaultValue="0">
+      <title>Camera</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##camera_Camera_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##camera_Camera_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <!-- Data -->
+    <appMagic:includeProperty name="AccessibleLabel" />
+    <appMagic:includeProperty name="Tooltip" />
+    <appMagic:includeProperty name="ContentLanguage" />
+    <!-- Design -->
+    <appMagic:includeProperty name="BorderColor" />
+    <appMagic:includeProperty name="BorderStyle" />
+    <appMagic:includeProperty name="BorderThickness" />
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="Width" defaultValue="640" />
+    <appMagic:includeProperty name="Height" defaultValue="540" />
+    <appMagic:includeProperty name="Visible" />
+    <appMagic:includeProperty name="DisplayMode" />
+    <!-- Hidden properties -->
+    <appMagic:includeProperty name="maximumHeight" defaultValue="768" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="1366" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="540" />
+    <appMagic:includeProperty name="minimumWidth" defaultValue="640" />
+  </appMagic:includeProperties>
+  <appMagic:requirementsMetadata>
+    <appMagic:requiredConditions>
+      <appMagic:previewFlag name="WebBarcodeScanner" />
+    </appMagic:requiredConditions>
+  </appMagic:requirementsMetadata>
+  <appMagic:insertMetadata>
+    <appMagic:category name="Media" priority="40" />
+  </appMagic:insertMetadata>
+  <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
+  <appMagic:displayMetadata>
+    <appMagic:section>
+      <appMagic:property name="BarcodeType" />
+      <appMagic:property name="Camera" />
+      <appMagic:property name="ShowLiveBarcodeDetection" />
+      <appMagic:property name="DisplayMode" />
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="Visible" />
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <appMagic:section>
+      <appMagic:property name="ScanRate" />
+      <appMagic:property name="Tooltip" />
+    </appMagic:section>
+  </appMagic:displayMetadata>
+  <appMagic:conversion from="2.0.0" to="2.1.0">
+    <appMagic:conversionAction type="remove" name="Contrast" />
+    <appMagic:conversionAction type="remove" name="Brightness" />
+    <appMagic:conversionAction type="remove" name="Zoom" />
+  </appMagic:conversion>
+  <appMagic:conversion from="2.1.0" to="2.2.0">
+    <appMagic:conversionAction type="add" name="ContentLanguage" />
+  </appMagic:conversion>
+</widget>
