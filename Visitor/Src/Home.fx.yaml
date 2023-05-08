@@ -192,7 +192,7 @@ Home As screen:
         FontWeight: =FontWeight.Bold
         Height: =80
         Size: =21
-        Text: ="Visitors list"
+        Text: ="Visitors list - charu"
         Width: =1366
         ZIndex: =3
 
