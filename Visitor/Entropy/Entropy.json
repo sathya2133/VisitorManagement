@@ -96,23 +96,23 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "05/08/2023 05:46:15",
+  "HeaderLastSavedDateTimeUTC": "05/08/2023 05:47:07",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "2201daf1-9ea8-4526-a82e-2f76e1a95f82": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/ac00a202-bd94-40d3-b874-23ff046db41b\"",
     "38822a4b-5504-43d2-97b0-7ad47e3e3431": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/9e98e877-a6cb-4789-8c52-da4b812d8d9d\"",
-    "398f3168-802e-47b2-9fc6-07a7a9687331": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/bc51b6effa7d45629cf785d24dad4838\"",
+    "398f3168-802e-47b2-9fc6-07a7a9687331": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/shared-office365user-273b19eb-ae29-487c-aa9e-e130e7aa3f52\"",
     "5916596c-0291-4072-8ac5-a649d3a6eee4": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/84467d50-bead-4544-8dcc-3bb547990d3a\"",
     "88396497-d188-43e5-9daf-95c7f29339ff": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/d51c2b82-96ab-49bc-8039-676453b001cd\"",
-    "afea0f83-8b4e-4dc3-8ca9-573a6e258b37": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/shared-sharepointonl-00d2ef55-69e0-4def-af93-f18e07b8f9af\"",
-    "e5b7806f-6e7f-4053-bb44-c1ac36477ac0": "\"/providers/microsoft.powerapps/apis/shared_office365/connections/shared-office365-13402280-0fc6-4750-a297-1781087b9c25\""
+    "afea0f83-8b4e-4dc3-8ca9-573a6e258b37": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/3472e32f01ce42669a1724841aa4d8ef\"",
+    "e5b7806f-6e7f-4053-bb44-c1ac36477ac0": "\"/providers/microsoft.powerapps/apis/shared_office365/connections/shared-office365-ce67e15b-daa8-4e75-813c-b6ea2f68ae6a\""
   },
   "LocalDatabaseReferencesAsEmpty": false,
   "LocalResourceFileNames": {
     "pexels-codioful-(formerly-gradienta)-7130469": "2edb6d89-c14a-417b-980d-29aba0d8d759.jpg"
   },
   "LocalResourceRootPaths": {
-    "pexels-codioful-(formerly-gradienta)-7130469": "https://docserverpwaprodeus.blob.core.windows.net/876c56d0-5244-49d1-85d3-7aba85cecf19-1/resource/Assets0Images02edb6d89-c14a-417b-980d-29aba0d8d759.jpg?sv=2018-03-28&sr=b&sig=G2P5EsPkWnxqCrRNTVQEbxuoIMRPYHkbh5uMcRaqKA4%3D&spr=https&se=2023-05-09T06%3A00%3A34Z&sp=r"
+    "pexels-codioful-(formerly-gradienta)-7130469": "https://docserverpwaprodeus.blob.core.windows.net/63c68218-4517-4589-8b5d-498abeb1a956-1/resource/Assets0Images02edb6d89-c14a-417b-980d-29aba0d8d759.jpg?sv=2018-03-28&sr=b&sig=9IFYbhbA1mUV2C9MkdgeYePShZcTfGFeVG7H98438Kg%3D&spr=https&se=2023-05-09T06%3A01%3A26Z&sp=r"
   },
   "OldLogoFileName": "bhwzvae1.jpg",
   "OrderComponentMetadata": {},
@@ -415,7 +415,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.5273977,
+    "AnalysisLoadTime": 0.5022501,
     "ControlCount": {
       "barcode": 1,
       "BarcodeReader": 1,
@@ -433,7 +433,7 @@
       "text": 7,
       "typedDataCard": 8
     },
-    "DeserializationLoadTime": 1.2349358
+    "DeserializationLoadTime": 1.5163409
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
